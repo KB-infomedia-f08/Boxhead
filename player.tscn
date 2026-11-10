@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://huk1nxhtgj8c"]
+
+[ext_resource type="Texture2D" uid="uid://dcuhuuqtioqnc" path="res://icon.svg" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://bbgkbddwkqsn0" path="res://Player.cs" id="1_onrkg"]
+[ext_resource type="Script" uid="uid://ccqh3skc80ccd" path="res://Crosshair.cs" id="3_i3pqv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ka2fx"]
+size = Vector2(130, 122)
+
+[node name="Player" type="CharacterBody2D" unique_id=770087080]
+script = ExtResource("1_onrkg")
+
+[node name="PlayerSprite" type="Sprite2D" parent="." unique_id=670108953]
+texture = ExtResource("1_4flbx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1052891408]
+shape = SubResource("RectangleShape2D_ka2fx")
+
+[node name="Crosshair" type="Sprite2D" parent="." unique_id=1384416295]
+position = Vector2(134, -3)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_4flbx")
+script = ExtResource("3_i3pqv")
