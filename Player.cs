@@ -24,10 +24,11 @@ public partial class Player : CharacterBody2D
 		if (Input.IsActionJustPressed("shoot"))
 		{
 			var bullet = bulletScene.Instantiate<Bullet>();
-			bullet.Position = bulletSpawner.Position;
-			bullet.velocity = new Vector2(250, 0);
-			AddChild(bullet);
+			bullet.GlobalPosition = bulletSpawner.GlobalPosition;
+			var direction = bulletSpawner.GlobalPosition - GlobalPosition;
+			bullet.velocity = direction.Normalized() * 400;
+			bullet.Rotation = direction.Angle();
+			Owner.AddChild(bullet);
 		}
     }
-
 }
